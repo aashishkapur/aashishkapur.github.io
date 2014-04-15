@@ -41,6 +41,5 @@ $(window).scroll(function(){
 		menuItems
 			.parent().removeClass("active")
 			.end().filter("[href=#"+id+"]").parent().addClass("active");
-			console.log("change " + id);
    }                   
 });
