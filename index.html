@@ -29,7 +29,7 @@
 				<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 					<div class="container">
 						<a class="navbar-brand active" href="#">Future Engineers</a>
-						<div class="navbar-collapse collapse top-nav">
+						<div class="navbar-collapse collapse top-nav" id="top-nav">
 							<ul class="nav navbar-nav">
 								<li class=""><a href="#">Home</a></li>
 								<li class=""><a href="#about">About Us</a></li>
@@ -51,7 +51,7 @@
 		<!-- Carousel
 		================================================== -->
 		<section id="home">
-		<a name="home"></a>
+		<a id="home" name="home"></a>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -81,7 +81,7 @@
 						</div>
 					</div>
 				</div>
-       			<div class="item">
+				<div class="item">
 					<img src="images/BKGR3.jpg" alt="Third slide">
 					<div class="container">
 						<div class="carousel-caption">
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 			</div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 			<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 		
 		</div><!-- /.carousel -->
@@ -102,7 +102,7 @@
 		<!-- Marketing messaging and featurettes
 		================================================== -->
 		<!-- Wrap the rest of the page in another container to center all the content. -->
- 		<div class="container marketing">
+		<div class="container marketing">
 
 
 			<div style="position:relative;">
@@ -237,7 +237,7 @@
 				<p class="pull-right"><a href="#">Back to top</a></p>
 				<p>&copy; 2014 Future Engineers <br/>
 				 Website Designed and Coded by Sameer and Aashish Kapur
-  				 
+				 
 				</p>
 			</footer>
 
@@ -254,23 +254,23 @@
 			// $('body').scrollspy({ target: '.top-nav' })
 			// Cache selectors
 var lastId,
-    topMenu = $("#top-nav"),
-    topMenuHeight = topMenu.outerHeight()+15,
-    // All list items
-    menuItems = topMenu.find("a"),
-    // Anchors corresponding to menu items
-    scrollItems = menuItems.map(function(){
-      var item = $($(this).attr("href"));
-      if (item.length) { return item; }
-    });
+	topMenu = $("#top-nav"),
+	topMenuHeight = topMenu.outerHeight()+15,
+	// All list items
+	menuItems = topMenu.find("a"),
+	// Anchors corresponding to menu items
+	scrollItems = menuItems.map(function(){
+	  var item = $($(this).attr("href"));
+	  if (item.length) { return item; }
+	});
 
 // Bind click handler to menu items
 // so we can get a fancy scroll animation
 menuItems.click(function(e){
   var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+	  offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
   $('html, body').stop().animate({ 
-      scrollTop: offsetTop
+	  scrollTop: offsetTop
   }, 300);
   e.preventDefault();
 });
@@ -282,19 +282,20 @@ $(window).scroll(function(){
    
    // Get id of current scroll item
    var cur = scrollItems.map(function(){
-     if ($(this).offset().top < fromTop)
-       return this;
-   });
+	 if ($(this).offset().top < fromTop)
+	   return this;
+});
    // Get the id of the current element
    cur = cur[cur.length-1];
    var id = cur && cur.length ? cur[0].id : "";
    
    if (lastId !== id) {
-       lastId = id;
-       // Set/remove active class
-       menuItems
-         .parent().removeClass("active")
-         .end().filter("[href=#"+id+"]").parent().addClass("active");
+	   lastId = id;
+	   // Set/remove active class
+	   menuItems
+		 .parent().removeClass("active")
+		 .end().filter("[href=#"+id+"]").parent().addClass("active");
+		 console.log("change " + id);
    }                   
 });
 		</script>
